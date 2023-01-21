@@ -1,0 +1,1 @@
+Simple accordion without animations and button to toggle all accrodions
