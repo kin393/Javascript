@@ -1,0 +1,28 @@
+.answer,
+.question {
+  text-align: left;
+  padding: 15px;
+}
+
+.answer {
+  display: none;
+}
+
+.question {
+  background: #eee;
+  cursor: pointer;
+}
+
+.question:hover,
+.question.active {
+  background: #ccc;
+}
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: DarkCyan;
+  color: white;
+  border: 1px solid DarkCyan;
+}
+
