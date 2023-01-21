@@ -1,0 +1,27 @@
+.starContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.starContainer .star{
+  margin: 20px;
+  transform: scale(2.5);
+}
+
+.star:hover{
+  transform: scale(3.5);
+   color: gold;
+}
+
+.active{
+  color: gold;
+}
+
+.starContainer:hover .star{
+  color: gold;
+}
+
+.star:hover ~ .star{
+  color: black;
+}
