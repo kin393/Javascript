@@ -358,6 +358,7 @@ The keyword await makes JavaScript wait until that promise settles and returns i
 await literally suspends the function execution until the promise settles, and then resumes it with the promise result. That doesn’t cost any CPU resources, because the JavaScript engine can do other jobs in the meantime: execute other scripts, handle events, etc.
 It’s just a more elegant syntax of getting the promise result than promise.then
 
+<h1 style="color:red;">ASYNC/DEFER</h1>
 
 Generally when a script tag is encountered, the html parsing of the application is stopped and the script tag is loaded, this creates a lag.Js is blocking.
 
