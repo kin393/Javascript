@@ -5,7 +5,7 @@ const debounce = function(fn,delay){
 let timer
 return function(){
 let context = this,
-Args = arguments;
+args = arguments;
 
 clearTimeOut(timer)
   
