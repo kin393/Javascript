@@ -191,11 +191,11 @@ A.   The Ability of use function as value,
 
 write a simple function:
 // even empty script is perfectly valid js script, what about empty brackets!!
-{
+`{
  var a = 10;
  let b = 20;
  const c =30; 
-}
+}`
 
 
 When a js script get hoisted (a Global Execution Context) gets created 'var' listed towards 'Global environment' and other variables 'let' and 'const' declarations go to the 'Block environment' 
@@ -210,7 +210,7 @@ so when we understand the extent of Global and local environment variables and t
 see script in 7:03
 
 
-var a = 100;
+`var a = 100;
 {
  var a = 10;
  let b = 20;
@@ -222,19 +222,19 @@ var a = 100;
  console.log(a);
  console.log(b);
  console.log(c);
-
+`
 
 So in block " var a = 10;" influences the value within the block hence  console.log(a); >> 10 and outside of the block 'Variable in Global environment' influences value of a hence console.log(a); >> 100
 
 
 <h1 style="color:red;">Illegal shadowing:</h1>
 
-
+`
 let a = 200;
 {
  var a =20;
 }
-
+`
 
 as 'var' declaration goes to 'Global environment' and sets in Memory context, it cannot be set using 'Block environment' value Hence:    Uncaught SyntaxError: Identifier 'a' has already been declared
 
@@ -321,7 +321,7 @@ Prototype chain
 
 <h1 style="color:red;">FUNCTION CURRYING</h1>
 Currying is when you break down a function that takes multiple arguments into a series of functions that each take only one argument.
-
+`
 function curry(f) { // curry(f) does the currying transform
   return function(a) {
     return function(b) {
@@ -335,7 +335,7 @@ function sum(a, b) {
 let curriedSum = curry(sum);
 
 alert( curriedSum(1)(2) );
- 
+`
  
 <h1 style="color:red;">Promises</h1>
 
@@ -382,7 +382,7 @@ A debounced function is called after N amount of time passes since its last call
 
 
 Implement Debounce function
-const debounce = function(fn,delay){
+`const debounce = function(fn,delay){
 Let timer
 return function(){
 Let context = this,
@@ -395,7 +395,7 @@ fn.apply(context,args);
 },delay)
 }
 }
-
+`
 <h1 style="color:red;">Event Bubbling & capturing</h1>
 If any event happens on child, its event is propagated to parent too, it moves up the hierarchy
 
