@@ -339,11 +339,46 @@ alert( curriedSum(1)(2) );
  
 <h1 style="color:red;">Promises</h1>
 
+Asyncronous programming exists because of Callbacks.
 
+The two Problems with callbacks
+1) Callback Hell: Callbacks are useful when we want to perfrom some extra functionality with our already existing function for example passing an error handling callback to our already created function, BUT when callbacks within themselves start taking in other functions as callbacks then that mess that you are left with is known as the Callback Hell leading to unreadable code, hence unmaintanable code.
+
+2) Inversion Of Control: when we pass a function to other function as a callback we are giving the called function the control of whether to even call it or not or maybe call it in a wrong context. For example a success callback is called when an error occours inside a called function (maybe due to human error while writing the code  for called function), this type of giving up of control over our functions is known as inversion of control.
+
+
+1. What are Promises?
+
+1. Promises is an object which represents the eventual completion of an asynchronous operation.
+
+2. In promises, instead of passing the callback function directly to a function/code, which can arise a problem called inversion of control, in which the full control of the callback function is passed, and we might not be aware of what is there in the code in which we are passing, it might contain issues/bugs which can cause problem like it might be the case that the function is never called, or it’s called more than once.
+
+3. In promises, what we do is pass that function in which we will be passing our callback function, to a promise object. And promises as we know are the objects, that function’s properties will be stored when that is executed, as that is an async operation.
+
+4. As we know JS never stops for any execution to happen or specifically for any async operation to be completed, firstly when the function is not completely executed the promise object remains empty(undefined).
+
+5. Then at the moment when that async operation is executed, the empty properties in the promise object get filled with actual values.
+
+6. The promise objects has mainly two properties: 
+State and result.
+
+7. State of an promise object can be in three states: 
+a) pending
+b) fulfilled
+c) rejected
+
+8. And, the result property contains what is returned by the async operation. If it is fulfilled, then it will contain the value, else which means rejected, it will contain the error.
+
+9. And then after the execution of async tasks, we can attach the callback function to be called after, explicitly using .then() method of promise object. Which provides us the option, that we are not passing the control of the callback function.
+
+10. Also using promises it guarantees that the callback function attached using the .then() will be called surely.
+And, it also ensures that that callback function will strictly be called once.
 Promises are used to handle asynchronous operations in javascript.
 
 
 A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+
+
 
 
 <h1 style="color:red;">ASYNC/AWAIT</h1>
