@@ -378,7 +378,7 @@ This means that irrespective of where the variables and functions are declared, 
 A throttled function is called once per N amount of time. Any additional function calls within the specified time interval are ignored.
 
 
-A debounced function is called after N amount of time passes since its last call. It reacts to a seemingly resolved state and implies a delay between the event and the handler function call.
+A debounced function is called after N amount of time passes since its last call. It reacts to a seemingly resolved state and implies a delay between the event and the handler function call.For example of input field (Make an API call only if difference between 2 keystroke events is N)
 
 
 Implement Debounce function
