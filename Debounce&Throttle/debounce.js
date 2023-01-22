@@ -1,17 +1,14 @@
 //DEBOUNCE
 
-const debounce = function(fn,delay){
+function debounce(cb, delay = 250) {
+  let timeout
 
-let timer
-return function(){
-let context = this,
-args = arguments;
-
-clearTimeOut(timer)
+  return (...args) => {
+    clearTimeout(timeout)
+    timeout = setTimeout(() => {
+      cb(...args)
+    }, delay)
+  }
   
-timer = setTimeOut(()=>{
-fn.apply(context,args);
-},delay)
-}
   
 }
