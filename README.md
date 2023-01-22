@@ -210,7 +210,7 @@ so when we understand the extent of Global and local environment variables and t
 see script in 7:03
 
 
- var a = 100;
+* var a = 100;
 {
  var a = 10;
  let b = 20;
