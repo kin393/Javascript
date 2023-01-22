@@ -210,7 +210,7 @@ so when we understand the extent of Global and local environment variables and t
 see script in 7:03
 
 
-* var a = 100;
+var a = 100;
 {
  var a = 10;
  let b = 20;
@@ -304,6 +304,119 @@ The two problems that we  faced in callbacks are:-
 Promise is an object that represents the eventual completion of an asynchronous operation.
 Promises are immutable so it can't be altered as a result it helps to get rid off inversion of control that would be occurred in case callback and by chaining of promises we can get out of the callback hell.
 In chaining of promises we should use return to get the promise result so that we don't miss anything from the chain.
+
+
+
+<h1 style="color:red;">Prototype and prototypal inheritance</h1>
+A prototype is a blueprint of an object. Prototype allows us to use properties and methods on an object even if the properties and methods do not exist on the current object.
+
+
+Javascript attaches an object to your object which has all these functions
+Access these properties `__proto__`
+
+
+Everything in JS is an Object
+Prototype chain
+
+
+<h1 style="color:red;">FUNCTION CURRYING</h1>
+Currying is when you break down a function that takes multiple arguments into a series of functions that each take only one argument.
+
+function curry(f) { // curry(f) does the currying transform
+  return function(a) {
+    return function(b) {
+      return f(a, b);
+    };
+
+function sum(a, b) {
+  return a + b;
+}
+
+let curriedSum = curry(sum);
+
+alert( curriedSum(1)(2) );
+ 
+ 
+<h1 style="color:red;">Promises</h1>
+
+
+Promises are used to handle asynchronous operations in javascript.
+
+
+A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+
+
+<h1 style="color:red;">ASYNC/AWAIT</h1>
+
+
+The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
+
+
+The keyword await makes JavaScript wait until that promise settles and returns its result.
+
+
+await literally suspends the function execution until the promise settles, and then resumes it with the promise result. That doesn’t cost any CPU resources, because the JavaScript engine can do other jobs in the meantime: execute other scripts, handle events, etc.
+It’s just a more elegant syntax of getting the promise result than promise.then
+
+
+Generally when a script tag is encountered, the html parsing of the application is stopped and the script tag is loaded, this creates a lag.Js is blocking.
+
+
+In ASYNC, the script tag is loaded in background, once the script tag is made available, the HTML parsing stops and the script is executed, once its executed parsing continues
+
+
+Similarly in DEFER, the script tag is loaded in parallel but will not start execution until the html parsing is complete
+ASYNC attribute does not guarantee order of execution while  defer does
+
+Hoisting
+Hoisting is a default behaviour of javascript where all the variable and function declarations are moved on top.
+This means that irrespective of where the variables and functions are declared, they are moved on top of the scope. The scope can be both local and global.
+**Note - Variable initializations are not hoisted, only variable declarations are hoisted:
+
+
+<h1 style="color:red;">Debouncing and Throttling</h1>
+A throttled function is called once per N amount of time. Any additional function calls within the specified time interval are ignored.
+
+
+A debounced function is called after N amount of time passes since its last call. It reacts to a seemingly resolved state and implies a delay between the event and the handler function call.
+
+
+Implement Debounce function
+const debounce = function(fn,delay){
+Let timer
+return function(){
+Let context = this,
+Args = arguments;
+
+
+clearTimeOut(timer)
+Timer = setTimeOut(()=>{
+fn.apply(context,args);
+},delay)
+}
+}
+
+<h1 style="color:red;">Event Bubbling & capturing</h1>
+If any event happens on child, its event is propagated to parent too, it moves up the hierarchy
+
+
+Event Capturing is event happens on parent, the event is propagated to child - Same as Trickling
+x.addEventListener(‘x’, ()=>{}, useCapture)
+Here Use capture is a boolean value and defines what should be used, bubbling or capturing, if the flag is set to true, capturing occurs and if false or simply nothing is passed bubbling occurs
+
+
+Use e.stopPropogation() to stop propagation - Only works for Bubbling when put on child element, if stop propagation needs to work for capturing, put on parent event listener
+
+
+<h1 style="color:red;">EVENT DELEGATION</h1>
+If you have a lot of event listeners hanging around in your code, it causes bottleneck to avoid this we use event delegation
+Instead of applying  event listeners on all child elements apply event listener to parent div
+Use e.target
+
+
+Pros -> memory, DOM manipulation
+Cons - not all events are bubbled up
+
 
 <h1 style="color:red;">MISC</h1>
 
