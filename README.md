@@ -51,10 +51,7 @@ For arrow functions, hoisting does not work because it will work as a variable.
 <h1 style="color:red;">CLOSURE</h1>
 
 Q)What is closure?
-A)The function bundled with its lexical environment closed to that function
-simply function + Lexical environment
-and closures have very special place in runtime environment
-The fun in JavaScript is you can assign a variable for a function and also you can pass function as a parameter even you can return the function in JavaScript
+A)
 
 Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure and that's where it becomes interesting !!
 
