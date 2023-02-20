@@ -579,6 +579,9 @@ axios.interceptors.response.use((response) => {
     return Promise.reject(error.message);
 });
 ```
+Typically, the API key provides only application-level security, giving every user the same access; whereas the JWT token provides user-level access. 
+
+A JWT token can contain information like its expiration date and a user identifier to determine the rights of the user across the entire ecosystem. 
 
 <h1>Shallow Copy vs Deep Copy</h1>
 
