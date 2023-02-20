@@ -459,6 +459,44 @@ Cons - not all events are bubbled up
 4. Unused variables are automatically deleted in High Level Programming language by garbage collector. Closures allocate a lot of memory which cannot be deleted so this acts as a disadvantage.
 5. Some browsers now have smart garbage collectors that automatically deletes variables that are not used outside closures.
 
+<h1>API Headers</h1>
+Authorization: Send credentials for basic HTTP authentication to give permission for access
+
+```
+Authorization: <type> <credentials>
+
+Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+```
+
+
+Cache-Control: Tell the browser how long a resource is eligible to be cached and re-used
+
+```
+Cache-Control: public, max-age=604800, immutable
+
+```
+
+Content-Type: Tell a server the MIME type of the body of a request so that the server knows how to parse the data
+
+```
+Content-Type: text/html; charset=UTF-8
+Content-Type: multipart/form-data; boundary=something
+```
+
+Cookie: Set a cookie to be stored in the browser so we can track state or sessions
+HTTP headers are used to pass additional information with HTTP response or HTTP requests. A cookie is an HTTP request header i.e. used in the requests sent by the user to the server. It contains the cookies previously sent by the server using one or more set-cookie headers. It is an optional header. 
+
+```
+Cookie: name=value; name=value; name=value
+
+```
+
+The Access-Control-Allow-Origin
+
+```
+Access-Control-Allow-Origin: * | <origin> | null
+```
+
 
 
 
