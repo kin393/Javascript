@@ -497,7 +497,88 @@ The Access-Control-Allow-Origin
 Access-Control-Allow-Origin: * | <origin> | null
 ```
 
+226
 
+
+To talk in simple terms, it is more of a checkpoint for every HTTP action. Every API call that has been made, is passed through this interceptor.
+
+So, why two interceptors?
+
+An API call is made up of two halves, a request, and a response. Since it behaves like a checkpoint, the request and the response have separate interceptors.
+
+Some request interceptor use cases -
+
+Assume you want to check before making a request if your credentials are valid. So, instead of actually making an API call, you can check at the interceptor level that your credentials are valid.
+
+Assume you need to attach a token to every request made, instead of duplicating the token addition logic at every Axios call, you can make an interceptor that attaches a token on every request that is made.
+
+Some response interceptor use cases -
+
+Assume you got a response, and judging by the API responses you want to deduce that the user is logged in. So, in the response interceptor, you can initialize a class that handles the user logged in state and update it accordingly on the response object you received.
+
+Assume you have requested some API with valid API credentials, but you do not have the valid role to access the data. So, you can trigger an alert from the response interceptor saying that the user is not allowed. This way you'll be saved from the unauthorized API error handling that you would have to perform on every Axios request that you made.
+
+Here are some code examples
+
+The request interceptor
+
+One can print the configuration object of axios (if need be) by doing (in this case, by checking the environment variable):
+
+```
+const DEBUG = process.env.NODE_ENV === "development";
+
+axios.interceptors.request.use((config) => {
+    /** In dev, intercepts request and logs it into console for dev */
+    if (DEBUG) { console.info("✉️ ", config); }
+    return config;
+}, (error) => {
+    if (DEBUG) { console.error("✉️ ", error); }
+    return Promise.reject(error);
+});
+If one wants to check what headers are being passed/add any more generic headers, it is available in the config.headers object. For example:
+
+axios.interceptors.request.use((config) => {
+    config.headers.genericKey = "someGenericValue";
+    return config;
+}, (error) => {
+    return Promise.reject(error);
+});
+```
+In case it's a GET request, the query parameters being sent can be found in config.params object.
+
+The response interceptor
+
+You can even optionally parse the API response at the interceptor level and pass the parsed response down instead of the original response. It might save you the time of writing the parsing logic again and again in case the API is used in the same way in multiple places. One way to do that is by passing an extra parameter in the api-request and use the same parameter in the response interceptor to perform your action. For example:
+
+//Assume we pass an extra parameter "parse: true" 
+axios.get("/city-list", { parse: true });
+Once, in the response interceptor, we can use it like:
+```
+axios.interceptors.response.use((response) => {
+    if (response.config.parse) {
+        //perform the manipulation here and change the response object
+    }
+    return response;
+}, (error) => {
+    return Promise.reject(error.message);
+});
+```
+So, in this case, whenever there is a parse object in response.config, the manipulation is done, for the rest of the cases, it'll work as-is.
+
+You can even view the arriving HTTP codes and then make the decision. For example:
+```
+axios.interceptors.response.use((response) => {
+    if(response.status === 401) {
+         alert("You are not authorized");
+    }
+    return response;
+}, (error) => {
+    if (error.response && error.response.data) {
+        return Promise.reject(error.response.data);
+    }
+    return Promise.reject(error.message);
+});
+```
 
 
 
