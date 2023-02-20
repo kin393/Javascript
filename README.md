@@ -497,7 +497,7 @@ The Access-Control-Allow-Origin
 Access-Control-Allow-Origin: * | <origin> | null
 ```
 
-226
+<h1>Axios Interceptors</h1>
 
 
 To talk in simple terms, it is more of a checkpoint for every HTTP action. Every API call that has been made, is passed through this interceptor.
