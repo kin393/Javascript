@@ -632,5 +632,9 @@ https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/#23-pitfall-
 https://javascript.info/testing-mocha
 
 
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+https://medium.com/level-up-web/the-ultimate-guide-to-css-103b0f883de3
+
 
 
