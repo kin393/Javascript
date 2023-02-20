@@ -580,6 +580,17 @@ axios.interceptors.response.use((response) => {
 });
 ```
 
+<h1>Shallow Copy vs Deep Copy</h1>
+
+Shallow Copy: When a reference variable is copied into a new reference variable using the assignment operator, a shallow copy of the referenced object is created. In simple words, a reference variable mainly stores the address of the object it refers to. When a new reference variable is assigned the value of the old reference variable, the address stored in the old reference variable is copied into the new one. This means both the old and new reference variable point to the same object in memory. As a result if the state of the object changes through any of the reference variables it is reflected for both. Let us take an example to understand it better.
+
+
+Deep Copy: Unlike the shallow copy, deep copy makes a copy of all the members of the old object, allocates separate memory location for the new object and then assigns the copied members to the new object. In this way, both the objects are independent of each other and in case of any modification to either one the other is not affected. Also, if one of the objects is deleted the other still remains in the memory. Now to create a deep copy of an object in JavaScript we use JSON.parse() and JSON.stringify() methods. Let us take an example to understand it better.
+To create Deep Copy ->
+Using Spread Operator
+Using Object.assign() method
+Using Json.parse() and Json.stringify()
+
 
 
 
