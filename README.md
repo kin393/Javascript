@@ -623,6 +623,12 @@ Using Spread Operator
 Using Object.assign() method
 Using Json.parse() and Json.stringify()
 
+https://dev.to/sag1v/javascript-the-this-key-word-in-depth-4pkm
+
+https://dmitripavlutin.com/javascript-this-interview-questions/
+
+https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/#23-pitfall-this-in-an-inner-function
+
 
 
 
